@@ -1,0 +1,8 @@
+﻿@model Application
+
+@{
+    ViewData["Title"] = "Confirmation";
+}
+
+<h1>Thank you for adding the movie @Model.Title</h1>
+<a asp-controller="Home" asp-action="AddMovie">Add another movie</a>

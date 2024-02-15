@@ -1,0 +1,39 @@
+﻿@model Application
+
+<h1>Add a Movie to the Database </h1>
+
+<form method="post">
+    <label asp-for="Category">Category:</label><br />
+    <input asp-for="Category" />
+    <br /><br />
+    <label asp-for="Title">Title:</label><br />
+    <input asp-for="Title" />
+    <br /><br />
+    <label asp-for="Year">Year:</label><br />
+    <input asp-for="Year" />
+    <br /><br />
+    <label asp-for="Director">Director:</label><br />
+    <input asp-for="Director" />
+    <br /><br />
+    <label asp-for="Rating">Rating:</label><br />
+    <select asp-for="Rating">
+        <option value="G" selected>G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+    </select>
+    <br /><br />
+    <label asp-for="Edited">Has this movie been edited?</label><br />
+    <select asp-for="Edited">
+        <option value="true">Yes</option>
+        <option value="false" selected>No</option>
+    </select>
+    <br /><br />
+    <label asp-for="Lent_To">Lent To:</label><br>
+    <input asp-for="Lent_To" />
+    <br /><br />
+    <label asp-for="Notes">Notes:</label><br>
+    <input asp-for="Notes" />
+    <br /><br />
+    <button type="submit">Submit Movie</button>
+</form>
