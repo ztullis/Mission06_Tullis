@@ -53,7 +53,7 @@ namespace Mission06_Tullis.Migrations
 
                     b.HasKey("ApplicationID");
 
-                    b.ToTable("Application");
+                    b.ToTable("Application", (string)null);
                 });
 #pragma warning restore 612, 618
         }
