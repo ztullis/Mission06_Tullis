@@ -8,6 +8,6 @@ namespace Mission06_Tullis.Models
         {
         }
 
-        public DbSet<Application> Movie { get; set; }
+        public DbSet<Application> Movies { get; set; }
     }
 }

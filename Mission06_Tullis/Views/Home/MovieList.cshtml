@@ -3,3 +3,41 @@
 *@
 @{
 }
+
+@model List<Application>
+
+<table class="table table-bordered">
+    <thead>
+        <tr class="fw-bold">
+            <td>Movie ID</td>
+            <td>Category ID</td>
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited</td>
+            <td>LentTo</td>
+            <td>CopiedToPlex</td>
+            <td>Notes</td>
+        </tr>
+        
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tbody>
+            <tr>
+                <td>@x.MovieId</td>
+                <td>@x.CategoryId</td>
+                <td>@x.Title</td>
+                <td>@x.Year</td>
+                <td>@x.Director</td>
+                <td>@x.Edited</td>
+                <td>@x.Edited</td>
+                <td>@x.Copied_To_Plex</td>
+                <td>@x.Notes</td>
+            </tr>
+            
+        </tbody>
+    }
+    
+</table>
