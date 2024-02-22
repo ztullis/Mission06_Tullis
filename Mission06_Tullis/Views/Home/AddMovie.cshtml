@@ -3,11 +3,17 @@
 <h1>Add a Movie to the Database </h1>
 
 <form method="post">
-    @* <label asp-for="Category">Category:</label><br />
-    <input asp-for="Category" />
-    <br /><br /> *@
     <label asp-for="Title">Title:</label><br />
     <input asp-for="Title" />
+    <br /><br />
+    <label>Select a Category:</label><br />
+    <select>
+        <br />
+        @foreach (Category c in ViewBag.CategoryViewBag)
+        {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+        }
+    </select>
     <br /><br />
     <label asp-for="Year">Year:</label><br />
     <input asp-for="Year" />
@@ -29,8 +35,8 @@
         <option value="false" selected>No</option>
     </select>
     <br /><br />
-    <label asp-for="Lent_To">Lent To:</label><br>
-    <input asp-for="Lent_To" />
+    <label asp-for="LentTo">Lent To:</label><br>
+    <input asp-for="LentTo" />
     <br /><br />
     <label asp-for="Notes">Notes:</label><br>
     <input asp-for="Notes" />

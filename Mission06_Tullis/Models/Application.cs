@@ -1,18 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission06_Tullis.Models
 {
     public class Application
     {
-        [Key]
-        [Required]
-        public int ApplicationID { get; set; }
+        //[Key]
+        //[Required]
+        //public int ApplicationID { get; set; }
 
         //[Required]
         //public string Category { get; set; }
+        [Key]
         [Required]
         public int MovieId { get;set; }
+        [ForeignKey("CategoryId")]
         public int? CategoryId { get;set; }
+        public Category CategoryName { get;set; }
 
         [Required]
         public string Title { get; set; }
@@ -27,10 +31,10 @@ namespace Mission06_Tullis.Models
         [Required]
         public int Edited { get; set; }
 
-        public string? Lent_To { get; set; }
+        public string? LentTo { get; set; }
 
         [Required]
-        public int Copied_To_Plex { get; set; }
+        public int CopiedToPlex { get; set; }
 
         [StringLength(25)]
         public string? Notes { get; set; }

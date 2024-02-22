@@ -25,6 +25,10 @@ namespace Mission06_Tullis.Controllers
         [HttpGet]
         public IActionResult AddMovie()
         {
+            ViewBag.CategoryViewBag = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+
             return View();
         }
 
@@ -37,7 +41,7 @@ namespace Mission06_Tullis.Controllers
             return View("Confirmation", response); //Goes to confirmation screen along with the record on the database
         }
 
-        public IActionResult MovieList(MovieApplicationContext _context)
+        public IActionResult MovieList()
         {
             var listOfMovies = _context.Movies
                 .OrderBy(x => x.Title).ToList();
