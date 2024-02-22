@@ -31,8 +31,8 @@ namespace Mission06_Tullis.Controllers
         [HttpPost]
         public IActionResult AddMovie(Application response)
         {
-            _context.Application.Add(response); //Adds record to the database
-            _context.SaveChanges();
+            //_context.Movies.Add(response); //Adds record to the database
+           // _context.SaveChanges();
 
             return View("Confirmation", response); //Goes to confirmation screen along with the record on the database
         }
