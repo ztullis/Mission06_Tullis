@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission06_Tullis.Models;
 using System.Diagnostics;
 
@@ -55,7 +56,9 @@ namespace Mission06_Tullis.Controllers
         public IActionResult MovieList()
         {
             var listOfMovies = _context.Movies
-                .OrderBy(x => x.Title).ToList();
+                .Include(m => m.Category)
+                .OrderBy(x => x.Title)
+                .ToList();
 
             return View(listOfMovies);
         }
@@ -101,3 +104,7 @@ namespace Mission06_Tullis.Controllers
         }
     }
 }
+
+//To Do
+// Fix error where the error message isn't showing for the blank year
+// Fix error where if we are editing a movie, it breaks if we make the year empty without any error messages?????

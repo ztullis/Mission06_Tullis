@@ -1,30 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Mission06_Tullis.Models
 {
     public class Application
     {
-        //[Key]
-        //[Required]
-        //public int ApplicationID { get; set; }
-
-        //[Required]
-        //public string Category { get; set; }
         [Key]
         [Required]
         public int MovieId { get;set; }
 
         [ForeignKey("CategoryId")]
         public int? CategoryId { get;set; }
-        public Category? CategoryName { get;set; }
+        public Category? Category { get;set; }
 
         [Required(ErrorMessage = "Please enter a movie title")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage ="Please enter the movie's year")]
-        public int Year { get; set; }
-
+        [Required(ErrorMessage ="Please enter a valid year after 1888.")]
+        //[Range(1888, int.MaxValue, ErrorMessage = "Please enter a year after 1888")] 
+        public int Year { get; set; } = 1888;
         public string? Director { get; set; }
 
         public string? Rating { get; set; }
