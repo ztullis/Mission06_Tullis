@@ -3,6 +3,7 @@
 <h1>Add a Movie to the Database </h1>
 
 <form method="post">
+    <input type="hidden" asp-for="MovieId" />
     <label asp-for="Title">Title:</label><br />
     <input asp-for="Title" />
     <br /><br />
@@ -42,4 +43,5 @@
     <input asp-for="Notes" />
     <br /><br />
     <button type="submit">Submit Movie</button>
+    <div asp-validation-summary="All"></div>
 </form>
