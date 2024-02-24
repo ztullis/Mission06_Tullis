@@ -12,14 +12,16 @@ namespace Mission06_Tullis.Models
 
         [ForeignKey("CategoryId")]
         public int? CategoryId { get;set; }
+
         public Category? Category { get;set; }
 
         [Required(ErrorMessage = "Please enter a movie title")]
         public string Title { get; set; }
 
         [Required(ErrorMessage ="Please enter a valid year after 1888.")]
-        //[Range(1888, int.MaxValue, ErrorMessage = "Please enter a year after 1888")] 
-        public int Year { get; set; } = 1888;
+        [Range(1888, int.MaxValue, ErrorMessage = "The year must be 1888 or after")] 
+        public int? Year { get; set; } = 1888;
+
         public string? Director { get; set; }
 
         public string? Rating { get; set; }

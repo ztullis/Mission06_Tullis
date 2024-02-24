@@ -79,10 +79,21 @@ namespace Mission06_Tullis.Controllers
         [HttpPost]
         public IActionResult Edit(Application updatedMovie)
         {
-            _context.Update(updatedMovie);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Update(updatedMovie);
+                _context.SaveChanges();
 
-            return RedirectToAction("MovieList");
+                return RedirectToAction("MovieList");
+            }
+            else //Invalid data
+            {
+                ViewBag.CategoryViewBag = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+
+                return View("AddMovie", updatedMovie);
+            }
         }
 
         [HttpGet]
@@ -104,7 +115,3 @@ namespace Mission06_Tullis.Controllers
         }
     }
 }
-
-//To Do
-// Fix error where the error message isn't showing for the blank year
-// Fix error where if we are editing a movie, it breaks if we make the year empty without any error messages?????
